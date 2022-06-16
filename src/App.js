@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
+import Home from './routes/home/home.component';
+import Navigation from './routes/navigation/navigation.component';
+import PlayersDirectory from './routes/players/player.component';
+import UstaLeagues from './routes/usta-leagues/usta-leagues.component';
+import './App.scss';
+import SignIn from './routes/sign-in/sign-in.component';
+import Coordinator from './routes/coordinator/coordinator.component';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route path='' element={<Home />} />
+        <Route path='usta-leagues' element={<UstaLeagues />} />
+        <Route path='players' element={<PlayersDirectory />} />
+        <Route path='sign-in' element={<SignIn />} />
+        <Route path='coordinator' element={<Coordinator />} />
+      </Route>
+    </Routes>
   );
-}
-
+};
 export default App;

@@ -1,0 +1,21 @@
+{
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "emmet.syntaxProfiles": {
+    "html": {
+      "attr_quotes": "single"
+    },
+
+    "jsx": {
+      "self_closing_tag": true
+    }
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.jsxSingleQuote": true,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.bracketSpacing": true,
+  "prettier.singleQuote": true
+}
