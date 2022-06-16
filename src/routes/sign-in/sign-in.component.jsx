@@ -11,6 +11,7 @@ import {
 import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
 
 import './sign-in.styles.scss';
+import Button from '../../components/button/button.component';
 
 const SignIn = () => {
   useEffect(() => {
@@ -33,17 +34,21 @@ const SignIn = () => {
     <div>
       <h1>Sign In Page</h1>
       <div className='sign-in-options'>
-        <button title='sign in with google popup' onClick={logGoogleUser}>
+        <Button
+          buttonType='google'
+          title='sign in with google popup'
+          onClick={logGoogleUser}>
           <i className='bi bi-google'> </i>
           Sign in with Google
-        </button>
+        </Button>
 
-        <button
+        <Button
+          buttonType='google'
           title='sign in with google redirect'
           onClick={signInWithGoogleRedirect}>
           <i className='bi bi-google'> </i>
           Sign in with Google redirect
-        </button>
+        </Button>
 
         <button title='sign in with facebook' disabled={true}>
           <i className='bi bi-facebook'> </i>
