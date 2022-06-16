@@ -14,9 +14,9 @@ import {
 
 import {
   getFirestore,
-  doc, // used to get a document instance
-  getDoc, // used to get the document DATA
-  setDoc, // used to set the document DATA
+  doc, // used to get a DOCUMENT instance
+  getDoc, // used to GET the DOCUMENT DATA
+  setDoc, // used to SET the DOCUMENT DATA
   // snapshotEqual
 } from 'firebase/firestore';
 
@@ -44,8 +44,8 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 
-// export const sighInWithGoogleRedirect = () =>
-//   signInWithRedirect(auth, googleProvider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
 
@@ -53,11 +53,11 @@ export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation = {}
 ) => {
-  //   if (!userAuth) return;
+  if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);
   // console.log(userDocRef);
   const userSnapshot = await getDoc(userDocRef);
-  console.log(userSnapshot.exists());
+  console.log('userSnapshot.exists()', userSnapshot.exists());
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
@@ -75,11 +75,11 @@ export const createUserDocumentFromAuth = async (
   return userDocRef;
 };
 
-// export const createAuthUserWithEmailAndPassword = async (email, password) => {
-//   if (!email || !password) return;
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
 
-//   return await createUserWithEmailAndPassword(auth, email, password);
-// };
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
 
 // export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 //   if (!email || !password) return;
