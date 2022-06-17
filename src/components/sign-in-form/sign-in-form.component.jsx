@@ -4,9 +4,10 @@ import {
   auth,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup,
+  // signInWithGooglePopup,
   signInWithGoogleRedirect,
 } from '../../utils/firebase/firebase.utils';
+
 import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 import './sign-in-form.styles.scss';
@@ -33,7 +34,6 @@ const SignInForm = () => {
         email,
         password
       );
-      console.log(user);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -64,10 +64,10 @@ const SignInForm = () => {
     fetchData();
   }, []);
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
-  };
+  // const logGoogleUser = async () => {
+  //   const { user } = await signInWithGooglePopup();
+  //   await createUserDocumentFromAuth(user);
+  // };
 
   return (
     <div className='sign-in-container'>
